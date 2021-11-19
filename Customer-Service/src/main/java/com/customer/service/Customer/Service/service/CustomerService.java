@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,6 +50,16 @@ public class CustomerService {
         return customerRepository.save(repCustomer);
     }
 
-    
+    @Caching(evict = { @CacheEvict(cacheNames = "customer", key = "#id"),
+    @CacheEvict(cacheNames = "custmers" , allEntries = true)})
+    public void delete(Long id){
+        customerRepository.deleteById(id);
+    }
+
+    @Cacheable(cacheNames = "customer", key = "#id", unless = "#result == null ")
+    public Optional<Customer> getCustomerById(Long id){
+        return customerRepository.findById(id);
+    }
+
 
 }
