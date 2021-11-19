@@ -1,4 +1,4 @@
-package com.customer.service.Customer.Service.config;
+package com.customer.service.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

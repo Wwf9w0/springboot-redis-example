@@ -1,7 +1,7 @@
-package com.customer.service.Customer.Service.service;
+package com.customer.service.service;
 
-import com.customer.service.Customer.Service.model.Customer;
-import com.customer.service.Customer.Service.repository.CustomerRepository;
+import com.customer.service.model.Customer;
+import com.customer.service.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;

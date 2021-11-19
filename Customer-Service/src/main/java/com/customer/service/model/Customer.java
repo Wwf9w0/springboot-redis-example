@@ -1,4 +1,4 @@
-package com.customer.service.Customer.Service.model;
+package com.customer.service.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
