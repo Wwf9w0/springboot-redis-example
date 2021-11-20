@@ -40,7 +40,7 @@ public class CustomerService {
             repCustomer.setCity(customer.getCity());
             repCustomer.setCountry(customer.getCountry());
             repCustomer.setContactName(customer.getContactName());
-            repCustomer.setPostalCode(customer.getPostalCode())
+            repCustomer.setPostalCode(customer.getPostalCode());
         }
 ;
 
