@@ -33,19 +33,16 @@ public class CustomerService {
     public Customer update(Customer customer){
 
         Optional<Customer> optCustomer = customerRepository.findById(customer.getId());
-
-        if (!optCustomer.isPresent()){
-            return null;
-        }
-
         Customer repCustomer = optCustomer.get();
-
-        repCustomer.setName((customer.getName()));
-        repCustomer.setAddress(customer.getAddress());
-        repCustomer.setCity(customer.getCity());
-        repCustomer.setCountry(customer.getCountry());
-        repCustomer.setContactName(customer.getContactName());
-        repCustomer.setPostalCode(customer.getPostalCode());
+        if (!optCustomer.isPresent()){
+            repCustomer.setName((customer.getName()));
+            repCustomer.setAddress(customer.getAddress());
+            repCustomer.setCity(customer.getCity());
+            repCustomer.setCountry(customer.getCountry());
+            repCustomer.setContactName(customer.getContactName());
+            repCustomer.setPostalCode(customer.getPostalCode())
+        }
+;
 
         return customerRepository.save(repCustomer);
     }

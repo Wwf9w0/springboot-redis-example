@@ -13,7 +13,7 @@ public class StartUpListener {
     @Autowired
     private CacheManager cacheManager;
 
-    @Override
+
     public final void onApplicationEvent(ContextRefreshedEvent event) {
         log.info("On Application Event is OK");
         cacheManager.getCacheNames().parallelStream().forEach(n -> {
