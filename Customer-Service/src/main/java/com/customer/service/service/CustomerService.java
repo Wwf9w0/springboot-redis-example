@@ -34,17 +34,18 @@ public class CustomerService {
 
         Optional<Customer> optCustomer = customerRepository.findById(customer.getId());
         Customer repCustomer = optCustomer.get();
-        if (!optCustomer.isPresent()){
+        if (optCustomer.isPresent()){
             repCustomer.setName((customer.getName()));
             repCustomer.setAddress(customer.getAddress());
             repCustomer.setCity(customer.getCity());
             repCustomer.setCountry(customer.getCountry());
             repCustomer.setContactName(customer.getContactName());
             repCustomer.setPostalCode(customer.getPostalCode());
+            customerRepository.save(repCustomer);
         }
 ;
 
-        return customerRepository.save(repCustomer);
+        return customerRepository.save(customer);
     }
 
     @Caching(evict = { @CacheEvict(cacheNames = "customer", key = "#id"),
